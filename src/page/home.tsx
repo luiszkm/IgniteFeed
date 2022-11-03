@@ -1,16 +1,17 @@
 import { Button } from "../components/button";
 import { Header } from "../components/Header";
 import { Input } from "../components/Input";
+import { SideBar } from "../components/SideBar";
 
 
-export function Home (){
-  return(
+export function Home() {
+  return (
     <>
-    <Header />
-    <Button>
-      Editar seu perfil
-    </Button>
-    <Input />
+      <Header />
+      <div>
+        <SideBar />
+        <main></main>
+      </div>
     </>
   )
 }
