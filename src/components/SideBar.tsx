@@ -13,8 +13,8 @@ export function SideBar() {
       <div className="flex flex-col items-center -mt-20">
 
         <img className="w-16 h-16 border-2 border-gray-800 outline outline-green-500 rounded-lg object-fill"
-          src="https://github.com/luiszkm.png" alt="" />
-          
+          src="https://github.com/luiszkm.png" alt="foto do usuário" />
+
         <strong className="font-bold text-gray-100">Luis Soares</strong>
         <span className="text-gray-300">Web Developer</span>
       </div>
