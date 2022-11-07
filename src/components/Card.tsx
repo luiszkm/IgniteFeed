@@ -2,8 +2,13 @@ import { Button } from "./Button";
 import { Comment } from "./Comment";
 import { Input } from "./Input";
 
+interface CardProps {
+ data : any
+}
 
-export function Card() {
+
+export function Card({data}:CardProps) {
+console.log(data);
 
 
   return (
@@ -12,11 +17,11 @@ export function Card() {
         <div className="flex gap-6 items-center">
 
           <img className="w-16 h-16 border-2 border-gray-800 outline outline-green-500 rounded-lg object-fill"
-            src="https://github.com/luiszkm.png" alt="foto do usuário" />
+            src={data.author.avatarUrl} alt="foto do usuário" />
 
           <div className="flex flex-col" >
-            <strong className="text-white">Irineu</strong>
-            <span className="text-gray-300">Front-End</span>
+            <strong className="text-white">{data.author.name}</strong>
+            <span className="text-gray-300">{data.author.role}</span>
           </div>
 
         </div>
@@ -46,6 +51,7 @@ export function Card() {
         <Button> Publicar</Button>
       </footer>
     <Comment />
+   
     </div>
   )
 }
