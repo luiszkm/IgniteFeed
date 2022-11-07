@@ -1,4 +1,4 @@
-import { Button } from "./button";
+import { Button } from "./Button";
 import { AiOutlineEdit } from 'react-icons/ai'
 
 export function SideBar() {
