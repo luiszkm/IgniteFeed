@@ -11,11 +11,11 @@ const posts = [
       role: 'Web Developer',
     },
     postContent: [
-      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      { type: 'title', content: 'Fala galeraa 👋' },
       { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
       { type: 'link', content: 'devsoares.com' },
     ],
-    publishedAt: new Date('2022-11-10 20:00:00')
+    publishedAt: new Date('2022-11-15 20:00')
   },
   {
     id: 2,
@@ -40,10 +40,15 @@ export function Home() {
       <div className="flex w-full flex-col items-center justify-center py-8 gap-8 md:flex-row md:items-start">
         <SideBar />
         <main className=" px-2">
-          { 
-          posts.map(post => (
-            <Card data={post} />
-          ))
+          {
+            posts.map(post => (
+              <Card
+                key={String(post.id)}
+                author={post.author}
+                postContent={post.postContent}
+                publishedAt={post.publishedAt}
+              />
+            ))
           }
         </main>
       </div>

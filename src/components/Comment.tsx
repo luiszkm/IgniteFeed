@@ -1,8 +1,10 @@
 import { BsTrash } from 'react-icons/bs'
 import { AiOutlineLike } from 'react-icons/ai'
 
-
-export function Comment() {
+interface CommentProps {
+  text:string
+}
+export function Comment({text}:CommentProps) {
 
   return (
     <div className='flex items-start gap-4'>
@@ -20,6 +22,7 @@ export function Comment() {
               className="text-gray-300 text-xs">cerca de 2h
             </time>
             <BsTrash className='cursor-pointer absolute top-4 right-4 fill-gray-300 stroke-gray-300 hover:fill-red-400' size={20} />
+            <p className='text-white'>{text}</p>
           </div>
 
           <div className='cursor-pointer text-gray-300 flex gap-2 hover:text-white active:text-green-500'>
