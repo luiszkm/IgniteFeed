@@ -48,6 +48,17 @@ const [newComment, setNewComment] = useState('')
 
   }
 
+  function handleDeleteComment(commentToDelete:string){
+    const commentsWithoutDeletedOne = comments.filter(comment =>{
+      return comment !== commentToDelete
+    })
+    setComments(commentsWithoutDeletedOne)
+  }
+
+  function handleNewCommentInvalid(){
+
+  }
+
   return (
     <div className="w-full max-w-[832px] p-10 bg-gray-800 rounded-lg flex flex-col gap-6">
       <header className="flex items-center justify-between">
@@ -93,15 +104,19 @@ const [newComment, setNewComment] = useState('')
       onSubmit={handleCreateNewComment}>
         <h3 className="text-gray-100 font-bold" >Deixe seu feedback</h3>
 
-        <Input value={newComment}
-         onChange={(e:React.ChangeEvent<HTMLInputElement>) => setNewComment(e.target.value)} />
 
-        <Button> Publicar</Button>
+        <Input value={newComment}
+         onChange={(e:React.ChangeEvent<HTMLInputElement>) => setNewComment(e.target.value)} 
+         onInvalid={()=>handleNewCommentInvalid()}
+         required/>
+
+        <Button disabled={newComment.length ===0}> Publicar</Button>
       </form>
 
       {comments.map(text =>(
         <Comment key={ text}
-         text={text}  />
+         text={text}
+         deleteComment={()=>handleDeleteComment(text)}  />
       ))}
 
     </div>
